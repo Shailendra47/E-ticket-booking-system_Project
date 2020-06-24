@@ -1,0 +1,35 @@
+Database: eticketbooking;
+
+create table storedata(
+	id int(250) primary key not null auto_increment,
+	user varchar(250),
+	password nvarchar(250),
+	email nvarchar(250),
+	course varchar(250),
+	contact int(250)
+);
+
+
+insert into storedata values(01,'shailendra singh','password47', 'shailendrasinghdeo437@gmail.com', 'MCA',9068978137);
+
+insert into storedata values(02,'Kamlesh joshi','Renaults', 'kammo47@gmail.com', 'MCA',7500594246);
+
+insert into storedata values(03,'Vandana pant','Leh05', 'codervanni@gmail.com', 'MCA',9760094502);
+
+insert into storedata values(04,'Yogesh kumar sharma','Bullet', 'aawara59@gmail.com', 'MCA',9058690459);
+
+
+create table ticketdata(
+	id int(250) primary key not null auto_increment,
+	Event_name varchar(250),
+	Semester int(250),
+	Total_Tickets int(250)	
+);
+
+insert into ticketdata values(04,'Carnival',04,01);
+
+
+	SELECT storedata.user, ticketdata.id, ticketdata.Event_name, ticketdata.Total_Tickets
+	FROM storedata
+	INNER JOIN ticketdata ON storedata.id=ticketdata.id
+	ORDER BY storedata.user, ticketdata.Event_name, ticketdata.Total_Tickets;
